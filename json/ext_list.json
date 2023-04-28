@@ -1,0 +1,31 @@
+{
+    "data": {
+        "code": 200,
+        "ext_list": [
+            "cpuName",
+            "deviceModel",
+            "deviceName",
+            "deviceType",
+            "deviceUID",
+            "gpuID",
+            "gpuName",
+            "gpuAPI",
+            "gpuVendor",
+            "gpuVersion",
+            "gpuMemory",
+            "osVersion",
+            "cpuCores",
+            "cpuFrequency",
+            "gpuVendorID",
+            "isGpuMultiTread",
+            "memorySize",
+            "screenSize",
+            "engineName",
+            "addressMAC"
+        ],
+        "msg": "ok",
+        "pkg_list": []
+    },
+    "message": "OK",
+    "retcode": 0
+}
