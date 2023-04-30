@@ -99,7 +99,7 @@ document.getElementById('gate-server-form').addEventListener('submit', async (ev
     });
 
     if (response.status === 200) {
-      alert('Gate servers saved successfully.');
+      alert('保存成功！');
     } else {
       const error = await response.json();
       alert(`Error: ${error.error}`);
