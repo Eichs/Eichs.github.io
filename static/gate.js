@@ -1,99 +1,107 @@
 document.getElementById('key-form').addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const keyInput = document.getElementById('key');
-    const key = keyInput.value;
-  
-    try {
-      const response = await fetch(`/api/getgateserver?key=${key}`);
-      if (response.status === 200) {
-        const data = await response.json();
-        displayGateServers(data.gate_servers);
-      } else {
-        const error = await response.json();
-        alert(`Error: ${error.error}`);
-      }
-    } catch (error) {
-      alert(`Error: ${error.message}`);
+  event.preventDefault();
+  const keyInput = document.getElementById('key');
+  const key = keyInput.value;
+
+  try {
+    const response = await fetch(`/api/getgateserver?key=${key}`);
+
+    if (response.status === 200) {
+      const data = await response.json();
+      createGateServerTable(data.gate_servers);
+      document.getElementById('gate-server-form').style.display = 'block';
+    } else {
+      const error = await response.json();
+      alert(`Error: ${error.error}`);
     }
-  });
-  
-  function displayGateServers(gateServers) {
-    const tbody = document.getElementById('gate-server-table').tBodies[0];
-    tbody.innerHTML = '';
-  
-    gateServers.forEach((gateServer, index) => {
-      const row = tbody.insertRow();
-      row.className = 'gate-server-row';
-  
-      const fields = [
-        'ID', 'Name', 'Title', 'Addr', 'DispatchUrl',
-        'MuipUrl', 'PayCallbackUrl', 'MuipSign', 'PaySign'
-      ];
-  
-      fields.forEach((field) => {
-        const cell = row.insertCell();
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.name = `${field}_${index}`;
-        input.value = gateServer[field] || '';
-        cell.appendChild(input);
-      });
-    });
-  
-    document.getElementById('gate-server-form').style.display = 'block';
+  } catch (error) {
+    alert(`Error: ${error.message}`);
   }
-  
-  document.getElementById('add-gate-server').addEventListener('click', () => {
-    const tbody = document.getElementById('gate-server-table').tBodies[0];
-    const row = tbody.insertRow();
-    row.className = 'gate-server-row';
-  
-    const fields = [
-      'ID', 'Name', 'Title', 'Addr', 'DispatchUrl',
-      'MuipUrl', 'PayCallbackUrl', 'MuipSign', 'PaySign'
-    ];
-  
-    fields.forEach((field) => {
-      const cell = row.insertCell();
+});
+
+function createGateServerTable(gateServers) {
+  const tbody = document.getElementById('gate-server-table').getElementsByTagName('tbody')[0];
+  tbody.innerHTML = '';
+
+  gateServers.forEach((gateServer) => {
+    const row = document.createElement('tr');
+    row.classList.add('gate-server-row');
+
+    Object.keys(gateServer).forEach((key) => {
+      const cell = document.createElement('td');
       const input = document.createElement('input');
-      input.type = 'text';
-      input.name = `${field}`;
-      input.value = '';
+      input.name = `${key}_${gateServer.ID}`;
+      input.value = gateServer[key];
       cell.appendChild(input);
+      row.appendChild(cell);
     });
+
+    tbody.appendChild(row);
   });
-  
-  document.getElementById('gate-server-form').addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const keyInput = document.getElementById('key');
-    const key = keyInput.value;
-  
-    const gateServers = Array.from(document.getElementsByClassName('gate-server-row')).map((row) => {
-      const gateServer = {};
-  
-      Array.from(row.getElementsByTagName('input')).forEach((input) => {
-        const field = input.name.split('_')[0];
-        gateServer[field] = input.value;
-      });
-  
-      return gateServer;
-    });
-  
-    try {
-      const response = await fetch(`/api/gateconfig?key=${key}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ GateServers: gateServers }),
-      });
-  
-      if (response.status === 200) {
-        alert('Gate servers saved successfully.');
-      } else {
-        const error = await response.json();
-        alert(`Error: ${error.error}`);
+}
+
+document.getElementById('add-gate-server').addEventListener('click', () => {
+  const newRow = {
+    ID: '',
+    Name: '',
+    Title: '',
+    Addr: '',
+    DispatchUrl: '',
+    MuipUrl: '',
+    PayCallbackUrl: '',
+    MuipSign: '',
+    PaySign: '',
+  };
+
+  const tbody = document.getElementById('gate-server-table').getElementsByTagName('tbody')[0];
+  const row = document.createElement('tr');
+  row.classList.add('gate-server-row');
+
+  Object.keys(newRow).forEach((key) => {
+    const cell = document.createElement('td');
+    const input = document.createElement('input');
+    input.name = `${key}_new`;
+    input.value = newRow[key];
+    cell.appendChild(input);
+    row.appendChild(cell);
+  });
+
+  tbody.appendChild(row);
+});
+
+document.getElementById('gate-server-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const keyInput = document.getElementById('key');
+  const key = keyInput.value;
+
+  const gateServers = Array.from(document.getElementsByClassName('gate-server-row')).map((row) => {
+    const gateServer = {};
+
+    Array.from(row.getElementsByTagName('input')).forEach((input) => {
+      const field = input.name.split('_')[0];
+      gateServer[field] = input.value;
+      if (field === 'ID' && input.value === '') {
+        gateServer[field] = undefined;
       }
-    } catch (error) {
-      alert(`Error: ${error.message}`);
-    }
+    });
+
+    return gateServer;
   });
-  
+
+  try {
+    const response = await fetch(`/api/gateconfig?key=${key}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ GateServers: gateServers }),
+    });
+
+    if (response.status === 200) {
+      alert('Gate servers saved successfully.');
+    } else {
+      const error = await response.json();
+      alert(`Error: ${error.error}`);
+    }
+  } catch (error) {
+    alert(`Error: ${error.message}`);
+  }
+});
