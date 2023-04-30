@@ -19,19 +19,6 @@ document.getElementById('key-form').addEventListener('submit', async (event) => 
   }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 function createGateServerTable(gate_servers) {
   const tbody = document.getElementById('gate-server-table').getElementsByTagName('tbody')[0];
   tbody.innerHTML = '';
@@ -41,25 +28,19 @@ function createGateServerTable(gate_servers) {
     row.classList.add('gate-server-row');
 
     Object.keys(gateServer).forEach((key) => {
-      const cell = document.createElement('td');
-      const input = document.createElement('input');
-      input.name = `${key}_${gateServer.ID}`;
-      input.value = gateServer[key];
-      cell.appendChild(input);
-      row.appendChild(cell);
+      if (key !== 'MuipUrl' && key !== 'PayCallbackUrl' && key !== 'MuipSign' && key !== 'PaySign') {
+        const cell = document.createElement('td');
+        const input = document.createElement('input');
+        input.name = `${key}_${gateServer.ID}`;
+        input.value = gateServer[key];
+        cell.appendChild(input);
+        row.appendChild(cell);
+      }
     });
 
     tbody.appendChild(row);
   });
 }
-
-
-
-
-
-
-
-
 
 document.getElementById('add-gate-server').addEventListener('click', () => {
   const newRow = {
@@ -68,10 +49,6 @@ document.getElementById('add-gate-server').addEventListener('click', () => {
     Title: '',
     Addr: '',
     DispatchUrl: '',
-    MuipUrl: '',
-    PayCallbackUrl: '',
-    MuipSign: '',
-    PaySign: '',
   };
 
   const tbody = document.getElementById('gate-server-table').getElementsByTagName('tbody')[0];
@@ -90,16 +67,6 @@ document.getElementById('add-gate-server').addEventListener('click', () => {
   tbody.appendChild(row);
 });
 
-
-
-
-
-
-
-
-
-
-
 document.getElementById('gate-server-form').addEventListener('submit', async (event) => {
   event.preventDefault();
   const keyInput = document.getElementById('key');
@@ -116,6 +83,11 @@ document.getElementById('gate-server-form').addEventListener('submit', async (ev
         gateServer[field] = input.value;
       }
     });
+
+    gateServer['MuipUrl'] = '';
+    gateServer['PayCallbackUrl'] = '';
+    gateServer['MuipSign'] = '';
+    gateServer['PaySign'] = '';
     
     return gateServer;
   });
