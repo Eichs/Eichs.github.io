@@ -19,11 +19,24 @@ document.getElementById('key-form').addEventListener('submit', async (event) => 
   }
 });
 
-function createGateServerTable(gateServers) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+function createGateServerTable(gate_servers) {
   const tbody = document.getElementById('gate-server-table').getElementsByTagName('tbody')[0];
   tbody.innerHTML = '';
 
-  gateServers.forEach((gateServer) => {
+  gate_servers.forEach((gateServer) => {
     const row = document.createElement('tr');
     row.classList.add('gate-server-row');
 
@@ -39,6 +52,14 @@ function createGateServerTable(gateServers) {
     tbody.appendChild(row);
   });
 }
+
+
+
+
+
+
+
+
 
 document.getElementById('add-gate-server').addEventListener('click', () => {
   const newRow = {
@@ -69,22 +90,33 @@ document.getElementById('add-gate-server').addEventListener('click', () => {
   tbody.appendChild(row);
 });
 
+
+
+
+
+
+
+
+
+
+
 document.getElementById('gate-server-form').addEventListener('submit', async (event) => {
   event.preventDefault();
   const keyInput = document.getElementById('key');
   const key = keyInput.value;
 
-  const gateServers = Array.from(document.getElementsByClassName('gate-server-row')).map((row) => {
+  const gate_servers = Array.from(document.getElementsByClassName('gate-server-row')).map((row) => {
     const gateServer = {};
 
     Array.from(row.getElementsByTagName('input')).forEach((input) => {
       const field = input.name.split('_')[0];
-      gateServer[field] = input.value;
-      if (field === 'ID' && input.value === '') {
-        gateServer[field] = undefined;
+      if (field === 'ID') {
+        gateServer[field] = input.value === '' ? undefined : parseInt(input.value, 10);
+      } else {
+        gateServer[field] = input.value;
       }
     });
-
+    
     return gateServer;
   });
 
@@ -92,7 +124,7 @@ document.getElementById('gate-server-form').addEventListener('submit', async (ev
     const response = await fetch(`/api/gateconfig?key=${key}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ GateServers: gateServers }),
+      body: JSON.stringify({ gate_servers: gate_servers }),
     });
 
     if (response.status === 200) {
