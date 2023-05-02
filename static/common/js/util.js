@@ -114,24 +114,4 @@ $(document).ready(()=>{
         
     }
 
-    window.get_login_info_by_uid = (uid,callback)=>{
-        $.ajax({
-            url:`/api/getLoginInfoByUid?&uid=${uid}`,
-            data:JSON.stringify({}) ,
-            method:"post",
-            dataType:"json",
-            contentType:"application/json;charset=UTF-8",
-            success: function (data) {
-                if(data["retcode"] == 0){
-                    var c_data = data["data"]
-                    callback(c_data)
-                }else{
-                    msg_box("获取失败")
-                }
-            },
-            error: function (data){
-                msg_box("获取失败")
-            }
-        })
-    }
 })
