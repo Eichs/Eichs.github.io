@@ -2,7 +2,7 @@
     {
         "name": "自杀",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "kill self"
         ]
@@ -10,27 +10,15 @@
     {
         "name": "踢出自己",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "kick"
         ]
     },
     {
-        "name": "获取自己所在场景和位置",
-        "type": 4
-    },
-    {
-        "name": "传送玩家到你的位置",
-        "type": 5
-    },
-    {
-        "name": "传送你到目标玩家的位置",
-        "type": 6
-    },
-    {
         "name": "移除地图迷雾 ",
         "type": 0,
-        "autorun": false,
+        "autorun": true,
         "cmd": [
             "area 3 all"
         ]
@@ -38,7 +26,7 @@
     {
         "name": "解锁飞行",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "quest accept 35603"
         ]
@@ -46,7 +34,7 @@
     {
         "name": "解锁祈愿|多人|商城",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "openstate all 1"
         ]
@@ -54,7 +42,7 @@
     {
         "name": "当前角色技能等级最高",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "skill all 10"
         ]
@@ -62,7 +50,7 @@
     {
         "name": "当前角色突破等级最高",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "break 6",
             "level 90"
@@ -71,7 +59,7 @@
     {
         "name": "解锁当前角色所有命座",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "talent unlock all"
         ]
@@ -79,7 +67,7 @@
     {
         "name": "恢复生命",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "revive"
         ]
@@ -87,7 +75,7 @@
     {
         "name": "无限体力开",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "stamina infinite on"
         ]
@@ -95,7 +83,7 @@
     {
         "name": "无限体力关",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "stamina infinite off"
         ]
@@ -103,7 +91,7 @@
     {
         "name": "玩家无敌开",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "wudi global avatar on"
         ]
@@ -111,7 +99,7 @@
     {
         "name": "玩家无敌关",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "wudi global avatar off"
         ]
@@ -119,7 +107,7 @@
     {
         "name": "无限元素爆发开",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "energy infinite on"
         ]
@@ -127,7 +115,7 @@
     {
         "name": "无限元素爆发关",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "energy infinite off"
         ]
@@ -135,7 +123,7 @@
     {
         "name": "怪物无敌开",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "wudi global monster on"
         ]
@@ -143,7 +131,7 @@
     {
         "name": "怪物无敌关",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "wudi global monster off"
         ]
@@ -151,7 +139,7 @@
     {
         "name": "杀死所有怪物",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "kill monster all"
         ]
@@ -159,14 +147,14 @@
     {
         "name": "1w家园币",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "home_coin 10000"
         ]
     },{
         "name": "获取仙速瓶x10",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd":[
             "item add 107013 10"
         ]
@@ -174,7 +162,7 @@
     {
         "name": "获取矿石资源x200",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "item add 101001 200",
             "item add 101002 200",
@@ -188,7 +176,7 @@
     {
         "name": "获取木头资源x200",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "item add 101301 200",
             "item add 101302 200",
@@ -211,7 +199,7 @@
     {
         "name": "获取大部分角色",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "item add 1002",
             "item add 1014",
@@ -269,7 +257,7 @@
     {
         "name": "圣遗物套装",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "item add 105002 2000",
             "item add 105003 2000",
@@ -318,7 +306,7 @@
     {
         "name": "精锻用魔矿x500",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "item add 104013 500"
         ]
@@ -326,7 +314,7 @@
     {
         "name": "一亿魔拉",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "item add 202 100000000"
         ]
@@ -334,7 +322,7 @@
     {
         "name": "传说钥匙x3",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "item add 107 3"
         ]
@@ -342,7 +330,7 @@
     {
         "name": "口袋锚点x10",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd":[
             "item add 220005 10"
         ]
@@ -350,7 +338,7 @@
     {
         "name": "体力道具",
         "type": 0,
-        "autorun": true,
+        "autorun": false,
         "cmd": [
             "item add 106000 1"
         ]
@@ -358,7 +346,7 @@
     {
         "name": "添加所有物品",
         "type": 0,
-        "autorun": false,
+        "autorun": true,
         "cmd": [
             "item add all 9"
         ]
@@ -366,7 +354,7 @@
     {
         "name": "清除所有物品",
         "type": 0,
-        "autorun": false,
+        "autorun": true,
         "cmd": [
             "item clear"
         ]
@@ -374,7 +362,7 @@
     {
         "name": "接下所有任务",
         "type": 0,
-        "autorun": false,
+        "autorun": true,
         "cmd": [
             "quest accept all"
         ]
@@ -382,49 +370,9 @@
     {
         "name": "所有任务进度重置",
         "type": 0,
-        "autorun": false,
+        "autorun": true,
         "cmd": [
             "quest clear all"
-        ]
-    },
-    {
-        "name": "复杂邮件测试",
-        "type": 1,
-        "sender": "派蒙",
-        "title": "赤壁怀古 苏轼",
-        "content": "大江东去，浪淘尽，千古风流人物。故垒西边，人道是：三国周郎赤壁。乱石穿空，惊涛拍岸，卷起千堆雪。江山如画，一时多少豪杰。\n遥想公瑾当年，小乔初嫁了，雄姿英发。羽扇纶巾，谈笑间樯橹灰飞烟灭。故国神游，多情应笑我，早生华发。人生如梦，一尊还酹江月。\n夏の花の如（ごと）く艶（つや）やかに生き、秋の枯叶（かれは）の如く穏（おだ）やかに终りを迎えよ\n咫尺西天서천이 지척이라\n Я желаю мира во всем мире \nآرزوی من، صلح جهانی\nМоето желание, световен мир.\nތިމަންކަލޭގެފާނުގެއެދިންނަވާނެތެވެ؟،\nमेरो विश्वासि, दुनिकश्चम्,\nញុំ​ចង់​សុវត្ថិភាព​ពិភពលោក\nჩემი მიზეზი, მსოფლიო მიმართი\n",
-        "item_list": ""
-    },
-    {
-        "name": "物品邮件测试",
-        "type": 1,
-        "sender": "派蒙",
-        "title": "超级邮件礼包A",
-        "content": "登录超级大礼包奖励",
-        "item_list": "11509:1:90:6,11504:1:90:6,11503:1:90:6,11502:1:90:6,11505:1:90:6,11510:1:90:6,11501:1:90:6,11511:1:90:6,12503:1:90:6,12501:1:90:6,12504:1:90:6,12502:1:90:6,12510:1:90:6"
-    },
-    {
-        "name": "邮件数组测试",
-        "type": 3,
-        "content_list": [
-            {
-                "sender": "派蒙",
-                "title": "超级邮件礼包",
-                "content": "登录超级大礼包奖励A",
-                "item_list": "11509:1:90:6,11504:1:90:6,11503:1:90:6,11502:1:90:6,11505:1:90:6,11510:1:90:6,11501:1:90:6,11511:1:90:6,12503:1:90:6,12501:1:90:6,12504:1:90:6,12502:1:90:6,12510:1:90:6"
-            },
-            {
-                "sender": "派蒙",
-                "title": "超级邮件礼包",
-                "content": "登录超级大礼包奖励B",
-                "item_list": "13504:1:90:6,13507:1:90:6,13509:1:90:6,13501:1:90:6,13505:1:90:6,13502:1:90:6,13511:1:90:6,14509:1:90:6,14506:1:90:6,14502:1:90:6,14501:1:90:6,14504:1:90:6,14511:1:90:6"
-            },
-            {
-                "sender": "派蒙",
-                "title": "超级邮件礼包",
-                "content": "登录超级大礼包奖励C",
-                "item_list": "15507:1:90:6,15501:1:90:6,15502:1:90:6,15503:1:90:6,15509:1:90:6,15511:1:90:6"
-            }
         ]
     }
 ]
